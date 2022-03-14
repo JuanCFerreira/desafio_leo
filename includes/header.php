@@ -12,5 +12,5 @@
         <div class='container'>
             <div class='jumbotron text-light bg-dark p-4'>
                 <h1>LEO Learning</h1>
-                <p>Teste de desenvovimento</p>
+                <p>Teste de desenvolvimento</p>
             </div>

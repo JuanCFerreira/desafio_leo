@@ -50,7 +50,7 @@ class Database
             die('ERROR: '.$e->getMessage());
         }
     }
-
+    
     /**
      * Método para executar queries no banco
      * @param string $query
@@ -65,6 +65,25 @@ class Database
         } catch(PDOException $e) {
             die('ERROR: '.$e->getMessage());
         }
+    }
+    
+    /**
+     * Método para executar consulta no banco
+     * @param string where
+     * @param string order
+     * @param string limit
+     * @param string fields
+     * @return PDOStatement
+     */
+    public function select( $where = null, $order = null, $limit = null, $fields = '*' ) {
+
+        $where = strlen($where) ? 'WHERE'.$where : '';
+        $order = strlen($order) ? 'ORDER BY'.$order : '';
+        $limit = strlen($limit) ? 'LIMIT'.$limit : '';
+
+        $query = 'SELECT '.$fields.' FROM '.$this->table.' '.$where.' '.$order.' '.$limit;
+
+        return $this->executar($query);
     }
 
     /**
