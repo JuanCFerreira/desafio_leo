@@ -122,7 +122,7 @@ class Database
      */
     public function delete( $where ) {
 
-        $query = 'DELETE FROM'.$this->table.' WHERE '.$where;
+        $query = 'DELETE FROM '.$this->table.' WHERE '.$where;
         $this->executar($query);
         return true;
 
