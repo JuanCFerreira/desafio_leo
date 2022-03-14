@@ -77,4 +77,12 @@ class Curso
         ]);
     }
 
+    /**
+     * Método para excluir um curso do banco
+     * @return boolean
+     */
+    public function excluir() {
+        return (new Database('cursos'))->delete(' id='.$this->id);
+    }
+
 }

@@ -115,4 +115,17 @@ class Database
 
     }
 
+    /**
+     * Método para deletar dados no banco
+     * @param string $where
+     * @return boolean
+     */
+    public function delete( $where ) {
+
+        $query = 'DELETE FROM'.$this->table.' WHERE '.$where;
+        $this->executar($query);
+        return true;
+
+    }
+
 }
