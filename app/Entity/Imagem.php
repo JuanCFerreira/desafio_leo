@@ -30,6 +30,15 @@ class Imagem
      */
     public $path;
 
+    /**
+     * Método para buscar 1 imagem no banco
+     * @param int $id 
+     * @return Imagem
+     */
+    public function getImagem($id) {
+        return (new Database('imagens'))->select(' id='.$id)->fetchObject(self::class);
+    }
+
     
     /**
      * Método para inserir imagens no banco
@@ -44,6 +53,18 @@ class Imagem
         ]);
 
         return true;
+
+    }
+
+    /**
+     * Método para excluir uma imagem do banco e storage
+     * @return boolean
+     */
+    public function excluir() {
+        $curso_id = $this->curso_id;
+        (new Database('imagens'))->delete(' id='.$this->id);
+        unlink($this->path);
+        return $curso_id;
 
     }
 

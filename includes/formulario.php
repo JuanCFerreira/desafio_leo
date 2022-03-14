@@ -22,7 +22,47 @@
             <label>Imagens:</label>
             <input type="file" name="imagens[]" multiple="multiple" accept="image/*" class='form-control'>    
         </div>
-        
+
+        <div class='row mt-5 mb-5 '>
+            <?php 
+                if ( !empty($obCurso->imagens) ) {
+                    foreach ($obCurso->imagens as $imagem){
+                        echo '
+                                
+                            <div class="col-sm-3 mt-4 border d-flex justify-content-center">
+                                    <div class="row">
+                                        
+                                        <div class="col-sm-12"  align="right">
+                                            
+                                            <a href="'.$imagem->path.'">
+                                                <button type="button" class="btn btn-transparent text-primary p-0">
+                                                    <i class="fa fa-eye"></i>
+                                                </button>
+                                            </a>
+
+                                            <input type="hidden" name="img_id" value="'.$imagem->id.'">
+                                            <a href="excluir-imagem.php?id='.$imagem->id.'">
+                                                <button type="button" class="btn btn-transparent text-danger p-0">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </a>
+                                           
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <picture>
+                                            
+                                                <img src="'.$imagem->path.'"  class="img-fluid img-thumbnail" alt="...">
+                                            </picture>
+                                        </div>
+                                    </div>
+                            </div>
+                        ';
+                    }
+                }
+
+            ?>
+        </div>
+
         <div class='form-group'>
             <label>Link</label>
             <input type='text' class='form-control' name='link' value='<?= $obCurso->link ?>'>

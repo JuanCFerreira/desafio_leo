@@ -32,6 +32,11 @@ class Curso
     public $link;
 
     /**
+     * @var Imagem
+     */
+    public $imagens;
+
+    /**
      * Método para cadastrar um novo curso
      * @return boolean
      */
@@ -62,7 +67,9 @@ class Curso
      * @return Curso
      */
     public function getCurso($id) {
-        return (new Database('cursos'))->select(' id='.$id)->fetchObject(self::class);
+        $curso = (new Database('cursos'))->select(' id='.$id)->fetchObject(self::class);
+        $curso->imagens = (new Database('imagens'))->select(' curso_id='.$id)->fetchAll(PDO::FETCH_CLASS, Imagem::class);
+        return $curso;
     }
 
     /**

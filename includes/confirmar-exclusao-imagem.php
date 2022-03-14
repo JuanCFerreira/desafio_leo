@@ -1,11 +1,11 @@
 <main>
 
 
-    <h2 class='mt-3'>Excluir curso</h2>
+    <h2 class='mt-3'>Excluir imagem</h2>
 
     <form method='post'>
         <div class='form-group'>
-           <p>Você realmente deseja excluir o curso <strong><?=$obCurso->titulo ?></strong>?</p>
+           <p>Você realmente deseja excluir a imagem?</p>
         </div>
 
         

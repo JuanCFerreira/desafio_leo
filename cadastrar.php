@@ -14,7 +14,7 @@ if( isset( $_POST['titulo'], $_POST['descricao'], $_POST['link'] ) ) {
     $obCurso->link = $_POST['link'];
     $obCurso->cadastrar();
 
-    $imagens = isset($_FILES['imagens']) ? $_FILES['imagens'] : false;
+    $imagens = !($_FILES['imagens']['size'][0] == 0) ? $_FILES['imagens'] : false;
 
     if( $imagens ) {
 
