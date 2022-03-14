@@ -19,10 +19,10 @@ if(!$obCurso instanceof Curso) {
 
 if( isset( $_POST['titulo'], $_POST['descricao'], $_POST['link'] ) ) {
 
-    $novoCurso->titulo = $_POST['titulo'];
-    $novoCurso->descricao = $_POST['descricao'];
-    $novoCurso->link = $_POST['link'];
-    $novoCurso->cadastrar();
+    $obCurso->titulo = $_POST['titulo'];
+    $obCurso->descricao = $_POST['descricao'];
+    $obCurso->link = $_POST['link'];
+    $obCurso->atualizar();
 
     header('location: index.php?status=success');
 

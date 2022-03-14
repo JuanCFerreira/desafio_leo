@@ -1,16 +1,17 @@
 <?php
 require __DIR__.'/vendor/autoload.php';
 
-define('TITULO', 'Editar Curso');
+define('TITULO', 'Cadastrar Curso');
 
 use \App\Entity\Curso;
 
+$obCurso = new Curso;
+
 if( isset( $_POST['titulo'], $_POST['descricao'], $_POST['link'] ) ) {
-    $novoCurso = new Curso;
-    $novoCurso->titulo = $_POST['titulo'];
-    $novoCurso->descricao = $_POST['descricao'];
-    $novoCurso->link = $_POST['link'];
-    $novoCurso->cadastrar();
+    $obCurso->titulo = $_POST['titulo'];
+    $obCurso->descricao = $_POST['descricao'];
+    $obCurso->link = $_POST['link'];
+    $obCurso->cadastrar();
 
     header('location: index.php?status=success');
 

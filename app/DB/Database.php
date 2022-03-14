@@ -100,4 +100,19 @@ class Database
         return $this->connection->lastInsertId();
     }
 
+    /**
+     * Método para atualizar dados no banco
+     * @param string $where
+     * @param array $values
+     * @return boolean
+     */
+    public function update( $where, $valores ) {
+
+        $chaves = array_keys($valores);
+        $query = 'UPDATE '.$this->table.' SET '. implode('=?,', $chaves) .'=? WHERE '.$where;
+        $this->executar($query, array_values($valores));
+        return true;
+
+    }
+
 }

@@ -5,22 +5,22 @@
         </a>
     </section>
 
-    <h2 class='mt-3'>Novo Curso</h2>
+    <h2 class='mt-3'><?=TITULO ?></h2>
 
     <form method='post'>
         <div class='form-group'>
             <label>Titulo</label>
-            <input type='text' class='form-control' name='titulo'>
+            <input type='text' class='form-control' name='titulo' value='<?= $obCurso->titulo ?>'>
         </div>
 
         <div class='form-group'>
             <label>Descricao</label>
-            <textarea rows='5' class='form-control' name='descricao'></textarea>
+            <textarea rows='5' class='form-control' name='descricao'><?= $obCurso->descricao ?></textarea>
         </div>
 
         <div class='form-group'>
             <label>Link</label>
-            <input type='text' class='form-control' name='link'>
+            <input type='text' class='form-control' name='link' value='<?= $obCurso->link ?>'>
         </div>
 
         <div class='form-group'>

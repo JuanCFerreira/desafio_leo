@@ -65,4 +65,16 @@ class Curso
         return (new Database('cursos'))->select(' id='.$id)->fetchObject(self::class);
     }
 
+    /**
+     * Método para atualizar detalhes de um curso do banco
+     * @return boolean
+     */
+    public function atualizar() {
+        return (new Database('cursos'))->update(' id='.$this->id, [
+            'titulo'    => $this->titulo,
+            'descricao' => $this->descricao,
+            'link'      => $this->link
+        ]);
+    }
+
 }
