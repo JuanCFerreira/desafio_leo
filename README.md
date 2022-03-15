@@ -9,6 +9,7 @@ Esta é uma aplicação desenvolvida para um teste de desenvolvimento para a emp
 
 ## Considerações
 * Como se trata de uma vaga de Desenvolvedor Backend o foco foi totalmente no Backend, ainda sim foi desenvovida uma interface para testes.
+* O Backend foi todo pensado para ser escalável, evitando a repetição de código principalmente em operações no banco de dados.
 
 ## Tecnologias
 * PHP orientado a objetos
