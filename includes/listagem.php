@@ -45,7 +45,7 @@
                                             </a>
                                         </h5>
                                         
-                                        <p>'.$curso->descricao.'</p>
+                                        <p>'.strip_tags($curso->descricao).'</p>
                                     </div>
                                 </div>
                                 
@@ -70,33 +70,3 @@
         </div>
     </section>
 </main>
-
-<script>
-    $(document).ready( function () {
-        $('#listagem').DataTable({
-            "language": {
-                "sProcessing":    "Procesando...",
-                "sLengthMenu":    "Mostrar _MENU_ registros",
-                "sEmptyTable":    "Não há cursos cadastrados",
-                "sInfo":          "Mostrando registros de _START_ a _END_ de um total de _TOTAL_ registros",
-                "sInfoEmpty":     "Mostrando registros de _START_ a _END_ de um total de _TOTAL_ registros",
-                "sInfoFiltered":  "(filtrado de um total de _MAX_ registros)",
-                "sInfoPostFix":   "",
-                "sSearch":        "Buscar:",
-                "sUrl":           "",
-                "sInfoThousands":  ",",
-                "sLoadingRecords": "Carregando...",
-                "oPaginate": {
-                    "sFirst":    "Primeiro",
-                    "sLast":    "Último",
-                    "sNext":    "Próximo",
-                    "sPrevious": "Anterior"
-                },
-                "oAria": {
-                    "sSortAscending":  ": Ordenar ascendente",
-                    "sSortDescending": ": Ordenar descendente"
-                }
-            }
-        })
-    });
-</script>
