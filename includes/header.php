@@ -21,4 +21,25 @@
              </h1>
         </nav>
         <div class='mx-5' style='margin-top: 15vh'>
-            
+
+            <?php
+                if ( isset( $_GET['status'] ) ) {
+                    switch ($_GET['status']) {
+                        case 'success':
+                              echo '
+                                  <div class="alert alert-success">
+                                    <strong>Operação realizada com sucesso!</strong> 
+                                  </div>
+                              ';
+                              break;
+                        case 'error':
+                              echo '
+                                  <div class="alert alert-danger">
+                                    <strong>Ocorreu um erro, entre em contato com a LEO!</strong> 
+                                  </div>
+                              ';
+                              break;
+
+                    }
+                } 
+            ?>
