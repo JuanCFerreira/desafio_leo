@@ -58,7 +58,11 @@ class Curso
      * @return array
      */
     public function getCursos( $where = null, $order = null, $limit = null ) {
-        return (new Database('cursos'))->select($where, $order, $limit)->fetchAll(PDO::FETCH_CLASS, self::class);
+        return (new Database('cursos'))->select($where, $order, $limit,
+            'cursos.*, imagens.path as imagem',
+            'imagens where cursos.id = imagens.curso_id',
+            'cursos.id'
+            )->fetchAll(PDO::FETCH_CLASS, self::class);
     }
 
     /**

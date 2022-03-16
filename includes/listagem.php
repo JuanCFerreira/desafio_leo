@@ -1,54 +1,102 @@
 
-
-
-
 <main>
     <section>
-        <a href='cadastrar.php'>
-            <button class='btn btn-primary mt-4 mb-4 '>Novo curso</button>
-        </a>
+        
     </section>
 
     <section>
-        <table id='listagem' class='table row-border'>
-            <thead class='bg-dark text-light'>
-                <tr>
-                    <th>ID</th>
-                    <th>Titulo</th>
-                    <th>Descrição</th>
-                    <th>Link</th>
-                    <th>Ações</th>
-                </tr>
-                
-            </thead>
-            <tbody>
+        <div class='row'>
+            <div class='col-xl-11 d-flex flex-align align-items-center'>
+                <h1 class='float-right'>Cursos</h1>
+            </div>
+            <div class='col-xl-1  d-flex flex-align align-items-center'>
+                <a href='cadastrar.php'>
+                    <button class='btn btn-primary mt-4 mb-5 '><i class='fa fa-plus'></i> Novo</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            
+            
+        </div>
+        
+        <div class='row'>
+            
             <?php
                 foreach ($cursos as $curso) {
                     echo  '
-                        <tr>
-                            <td>'.$curso->id.'</td>
-                            <td>'.$curso->titulo.'</td>
-                            <td>'.$curso->descricao.'</td>
-                            <td>'.$curso->link.'</td>
-                            <td>
-                                <a href="editar.php?id='.$curso->id.'">
-                                    <button type="button" class="btn btn-transparent"><i class="fa fa-pen text-primary"></i></button>
-                                </a>
-                                <a href="excluir.php?id='.$curso->id.'">
-                                    <button type="button" class="btn btn-transparent"><i class="fa fa-trash text-danger"></i></button>
-                                </a>
-                            </td>
-                        </tr>
+                        
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                
+                                <img class="card-img-top" src="'.$curso->imagem.'" alt="...">
+                                
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        
+                                        <h5 class="fw-bolder">
+                                            <a href="'.$curso->link.'">
+                                                <button class="btn btn-transparent p-0">
+                                                
+                                                        <h5>'.$curso->titulo.'</h5>
+                                                    
+                                                </button>
+                                            </a>
+                                        </h5>
+                                        
+                                        <p>'.$curso->descricao.'</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center">
+                                        <a class="btn btn-outline-danger mt-auto" href="excluir.php?id='.$curso->id.'">
+                                            Excluir
+                                        </a>
+
+                                        <a class="btn btn-primary mt-auto" href="editar.php?id='.$curso->id.'">
+                                            Editar
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            
+                       
                     ';
                 }    
             ?>
-            </tbody>
-        </table>
+        </div>
     </section>
 </main>
 
 <script>
     $(document).ready( function () {
-        $('#listagem').DataTable();
-    } );
+        $('#listagem').DataTable({
+            "language": {
+                "sProcessing":    "Procesando...",
+                "sLengthMenu":    "Mostrar _MENU_ registros",
+                "sEmptyTable":    "Não há cursos cadastrados",
+                "sInfo":          "Mostrando registros de _START_ a _END_ de um total de _TOTAL_ registros",
+                "sInfoEmpty":     "Mostrando registros de _START_ a _END_ de um total de _TOTAL_ registros",
+                "sInfoFiltered":  "(filtrado de um total de _MAX_ registros)",
+                "sInfoPostFix":   "",
+                "sSearch":        "Buscar:",
+                "sUrl":           "",
+                "sInfoThousands":  ",",
+                "sLoadingRecords": "Carregando...",
+                "oPaginate": {
+                    "sFirst":    "Primeiro",
+                    "sLast":    "Último",
+                    "sNext":    "Próximo",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending":  ": Ordenar ascendente",
+                    "sSortDescending": ": Ordenar descendente"
+                }
+            }
+        })
+    });
 </script>

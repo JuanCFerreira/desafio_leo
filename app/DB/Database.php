@@ -73,15 +73,20 @@ class Database
      * @param string order
      * @param string limit
      * @param string fields
+     * @param string join
+     * @param string groupBy
      * @return PDOStatement
      */
-    public function select( $where = null, $order = null, $limit = null, $fields = '*' ) {
+    public function select( $where = null, $order = null, $limit = null, $fields = '*', $join= null, $groupBy = null ) {
 
-        $where = strlen($where) ? 'WHERE'.$where : '';
-        $order = strlen($order) ? 'ORDER BY'.$order : '';
-        $limit = strlen($limit) ? 'LIMIT'.$limit : '';
+        $where = strlen($where)     ? 'WHERE '.$where : '';
+        $order = strlen($order)     ? 'ORDER BY '.$order : '';
+        $limit = strlen($limit)     ? 'LIMIT '.$limit : '';
+        $join = strlen($join)       ? 'JOIN '.$join : '';
+        $groupBy = strlen($groupBy) ? 'GROUP BY '.$groupBy : '';
+        
 
-        $query = 'SELECT '.$fields.' FROM '.$this->table.' '.$where.' '.$order.' '.$limit;
+        $query = 'SELECT '.$fields.' FROM '.$this->table.' '.$where.' '.$join.' '.$groupBy.' '.$order.' '.$limit;
 
         return $this->executar($query);
     }

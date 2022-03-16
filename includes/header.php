@@ -12,9 +12,13 @@
         crossorigin="anonymous"></script>
     <title>LEO Learning</title>
   </head>
-  <body>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark p-4">
-            <h1 onclick='location.href = "index.php"' class='mx-3 text-light'>LEO Learning</h1>
+  <body class="bg-light">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark p-3">
+            <h1 class='mx-3 text-light'>
+              <button onclick='location.href = "index.php"' type='button' class='btn btn-transparent'>
+                <img class="logo-image d-none d-lg-inline-block" src="https://leolearning.com.br/images/LOGO/leo_homep1_03.webp" alt="LEO Learning">
+              </button>
+             </h1>
         </nav>
-        <div class='container ' style='margin-top: 15vh'>
+        <div class='mx-5 ' style='margin-top: 15vh'>
             
