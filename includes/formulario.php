@@ -28,7 +28,7 @@
             </div>
 
             
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 <?php 
                     if ( !empty($obCurso->imagens) ) {
                         foreach ($obCurso->imagens as $imagem){
