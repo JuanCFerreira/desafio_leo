@@ -24,6 +24,11 @@
         <div class='row'>
             
             <?php
+
+                if ( empty( $cursos ) ) {
+                    echo '<div class="display-4" align="center">Não há cursos cadastrados</div>';
+                }
+
                 foreach ($cursos as $curso) {
                     echo  '
                         
